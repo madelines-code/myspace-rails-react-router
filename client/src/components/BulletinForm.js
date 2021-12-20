@@ -1,23 +1,19 @@
 import axios from 'axios';
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useContext} from 'react';
 import { useParams, useNavigate } from 'react-router';
+import { AuthContext } from '../providers/AuthProvider';
 
 
 const BulletinForm = () => {
 
-  // return (
-  //   <div>
-  //     <p>thing 1</p>
-  //     <input />
-  //   </div>
-  // )
+  const auth = useContext(AuthContext);
   const [header, setHeader] = useState("");
   const [body, setBody] = useState("");
   const navigate = useNavigate();
   const params = useParams();
 
   useEffect(() => {
-    // don't get fact for new form, only edit
+    // don't get bulletin for new form, only edit
     if (params.id) {
       getBulletin();
     }
@@ -36,8 +32,8 @@ const BulletinForm = () => {
   const handleSubmit = async (e) => {
     // this prevents a reload
     e.preventDefault();
-    console.log({ header: header, body: body });
-    const bulletin = { header: header, body: body };
+    console.log({ header: header, body: body, user_id: auth.id });
+    const bulletin = { header: header, body: body, user_id: auth.id, author: auth.id };
 
     if (params.id) {
       // update logic here
@@ -75,6 +71,8 @@ const BulletinForm = () => {
         <input value={header} onChange={(e) => setHeader(e.target.value)} />
         <p>Body</p>
         <input type='text' value={body} onChange={(e) => setBody(e.target.value)} />
+        <p>Author</p>
+        <input type='text' value={auth.id} />
         <button>{params.id ? "Update" : "Create"} </button>
       </form>
     </div>

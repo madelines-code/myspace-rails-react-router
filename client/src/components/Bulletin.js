@@ -30,6 +30,7 @@ const Bulletin = (props) => {
         <Card.Content>
           <p>{body}</p>
         </Card.Content>
+        
       </Card>
 
     )

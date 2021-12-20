@@ -40,7 +40,7 @@ class Api::BulletinsController < ApplicationController
   end
 
   def bulletin_params
-    params.require(:bulletin).permit(:header, :body, :author )
+    params.require(:bulletin).permit(:header, :body, :user_id, :author )
   end
 
   def bulletin_params_update

@@ -43,7 +43,6 @@ if(checkingAuthStatus){
   // here we are authenticated
   return (
     <div>
-      <h3>hello {auth.email}</h3>
       <Outlet />
     </div>
   );

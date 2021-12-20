@@ -19,15 +19,18 @@ const Protected = () => {
   const getData = async () => {
     let res = await axios.get("/api/users");
     console.log(res.data);
-    let myUsers = res.data.filter ((u) => u.id !== auth.id )
-    setUsers(myUsers)
+    // let myUsers = res.data.filter ((u) => u.id !== auth.id )
+    setUsers(res.data)
     let bulletinsRes = await axios.get("/api/bulletins");
     console.log(bulletinsRes.data);
     setBulletins(bulletinsRes.data);
   };
   const renderUsers = () => {
     console.log(users)
-    return users.map((u)=>{
+    let myUsers = users.filter ((u) => u.id !== auth.id)
+    return (
+      myUsers.map((u)=>{
+      
       return (
         <Card  style = {{margin: '10px'}}>
         <Image src={u.image} wrapped ui={false} />
@@ -39,16 +42,16 @@ const Protected = () => {
         </Card.Content>
       </Card>
     )
-    })
-  };
+      })
+    )};
 
   const renderBulletins = () => {
     return bulletins.map((b)=>{
-      let author = users.filter((u)=> u.id == b.author)
+      let author = users.find((u)=> u.id == b.author)
       // let author = users.filter((u)=> u.id === b.author)
-      let authorName = author[0].name
-      console.log(author);
-      console.log(author[0].name);
+      let authorName = author.name
+      console.log(author.name)
+      console.log(b)
       return (
         <Card style = {{margin: '10px'}}>
         <Card.Content>
@@ -58,13 +61,14 @@ const Protected = () => {
           <p>{b.body}</p>
         </Card.Content>
         <Card.Content>
-          <p>Author: {author[0].name} </p>
+          <p>Author: {author.name} </p>
         </Card.Content>
         <Link to={`/api/bulletins/${b.id}`} state = {{b}} {...b} >View Bulletin</Link>
         <Link to={`/api/bulletins/${b.id}/edit`} state = {{b}} >Edit</Link>
       </Card>
     )
     })
+    // .slice(0,6)
   };
 
 
@@ -74,18 +78,21 @@ const Protected = () => {
       {/* how can I pass the name through authentication? */}
       {/* <h2>{auth.name}'s Profile</h2> */}
       <h2>My Profile</h2>
+      <h3>Hey, {auth.name}!</h3>
+      <img src={auth.image}/>
       <p>email: {auth.email}</p>
       <p>My ID {auth.id}</p>
       {/* <Link to={<ProfileForm id={auth.id}/>}>Edit Profile</Link> */}
-      <p>{JSON.stringify(auth)}</p>
-      <div>
-        <h2>Other Users:</h2>
-        <div style = {{display: 'flex', flexDiretion: 'row', flexWrap: 'wrap'}}>{renderUsers()}</div>
-      </div>
-      <div>
-        <h2>Bulletin Feed</h2>
-        <Link to={`/api/bulletins/new`} >Post A Bulletin</Link>
-        <div style = {{display: 'flex', flexDiretion: 'column', flexWrap: 'wrap', margin: '10px', padding: '10px'}}>{renderBulletins()}</div>
+      <div style={{display: 'flex', flexDiretion: 'row'}}>
+        <div>
+          <h2 >Other Users:</h2>
+          <div style = {{display: 'flex', flexDiretion: 'row', flexWrap: 'wrap', float: 'left', width: '50vw', flexGrow: '1' }}>{renderUsers()}</div>
+        </div>
+        <div>
+          <h2>Bulletin Feed</h2>
+          <Link to={`/api/bulletins/new`} >Post A Bulletin</Link>
+          <div style = {{display: 'flex', flexDiretion: 'column', flexWrap: 'wrap', margin: '10px', padding: '10px', flexGrow: '1' }}>{renderBulletins()}</div>
+        </div>
       </div>
       
       {auth.authenticated && <p>is logged in</p>}

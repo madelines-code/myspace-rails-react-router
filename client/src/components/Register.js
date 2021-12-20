@@ -7,6 +7,7 @@ const Register = () => {
   const {handleRegister} = useContext(AuthContext);
   const [email, setEmail] = useState('test1@test.com')
   const [password, setPassword] = useState('3453777')
+  const [name, setName] = useState('Jerry')
   const [passwordConfirmation, setPasswordConfirmation] = useState('3453777')
   const navigate = useNavigate();
   const handleSubmit = (e) => {
@@ -17,7 +18,7 @@ const Register = () => {
       return;
     }
 
-    handleRegister({email, password}, navigate);
+    handleRegister({email, password, name}, navigate);
   };
 
   return (
@@ -36,6 +37,10 @@ const Register = () => {
         <input 
         value={passwordConfirmation} 
         onChange={(e)=>{setPasswordConfirmation(e.target.value);}}/>
+                <p>Password confirmation</p>
+        <input 
+        value={name} 
+        onChange={(e)=>{setName(e.target.value);}}/>
         <button >Register</button>
       </form>
     </>

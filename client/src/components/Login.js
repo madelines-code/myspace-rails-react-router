@@ -5,7 +5,7 @@ import { AuthContext } from "../providers/AuthProvider";
 const Login = () => {
 
   const {handleLogin} = useContext(AuthContext);
-  const [email, setEmail] = useState('test1@test.com')
+  const [email, setEmail] = useState('test2@test.com')
   const [password, setPassword] = useState('3453777')
   const navigate = useNavigate();
   const handleSubmit = (e) => {

@@ -13,11 +13,7 @@ const Home = () => {
     <div>
       <h2>Home!</h2>
       {JSON.stringify(auth)}
-      <p onClick={auth.handleLogin}>Login</p>
-      <p onClick={auth.handleLogout}>Logout</p>
-      <Link to="/protected">Protected</Link>
-      <Link to="/public">Public</Link>
-      <p onClick={()=>navigate("/public")}>navigate to public</p>
+
     </div>
   );
 };

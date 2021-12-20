@@ -7,6 +7,7 @@ import { Route, Routes} from 'react-router-dom';
 import { Container, } from "semantic-ui-react";
 import RequireAuth from './components/RequireAuth';
 import Layout from './components/Layout';
+import Users from './components/Users';
 import AuthProvider from './providers/AuthProvider';
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
           <Route element={<RequireAuth />}>
               {/* protected routes go here */}
             <Route path="/protected" element={<Protected />} />
+            <Route path = "/users" element={<Users/>}/>
           </Route>
         </Route >
       </Routes>

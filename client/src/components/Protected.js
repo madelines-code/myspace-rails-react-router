@@ -84,6 +84,7 @@ const Protected = () => {
       </div>
       <div>
         <h2>Bulletin Feed</h2>
+        <Link to={`/api/bulletins/new`} >Post A Bulletin</Link>
         <div style = {{display: 'flex', flexDiretion: 'column', flexWrap: 'wrap', margin: '10px', padding: '10px'}}>{renderBulletins()}</div>
       </div>
       

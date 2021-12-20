@@ -25,6 +25,7 @@ function App() {
             <Route path = "/users" element={<Users/>}/>
             <Route path = "/api/bulletins/:id" element = {<Bulletin/>}/>
             <Route path = "/api/bulletins/:id/edit" element = {<BulletinForm/>}/>
+            <Route path = "/api/bulletins/new" element = {<BulletinForm/>}/>
           </Route>
         </Route >
       </Routes>

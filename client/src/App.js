@@ -9,6 +9,8 @@ import RequireAuth from './components/RequireAuth';
 import Layout from './components/Layout';
 import Users from './components/Users';
 import AuthProvider from './providers/AuthProvider';
+import Bulletin from './components/Bulletin';
+import BulletinForm from './components/BulletinForm';
 
 function App() {
   return (
@@ -21,6 +23,8 @@ function App() {
               {/* protected routes go here */}
             <Route path="/protected" element={<Protected />} />
             <Route path = "/users" element={<Users/>}/>
+            <Route path = "/api/bulletins/:id" element = {<Bulletin/>}/>
+            <Route path = "/api/bulletins/:id/edit" element = {<BulletinForm/>}/>
           </Route>
         </Route >
       </Routes>

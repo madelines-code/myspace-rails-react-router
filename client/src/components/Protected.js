@@ -1,7 +1,10 @@
 import React, { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../providers/AuthProvider";
 import axios from "axios";
-import { Card, Image } from "semantic-ui-react";
+import { Button, Card, Image } from "semantic-ui-react";
+import Bulletin from "./Bulletin";
+import ProfileForm from "./ProfileForm";
+import { Link } from "react-router-dom";
 
 
 const Protected = () => {
@@ -57,6 +60,8 @@ const Protected = () => {
         <Card.Content>
           <p>Author: {author[0].name} </p>
         </Card.Content>
+        <Link to={`/api/bulletins/${b.id}`} state = {{b}} {...b} >View Bulletin</Link>
+        <Link to={`/api/bulletins/${b.id}/edit`} state = {{b}} >Edit</Link>
       </Card>
     )
     })
@@ -66,10 +71,12 @@ const Protected = () => {
 
   return (
     <div>
-      
-      <h2>Protected</h2>
+      {/* how can I pass the name through authentication? */}
+      {/* <h2>{auth.name}'s Profile</h2> */}
+      <h2>My Profile</h2>
       <p>email: {auth.email}</p>
       <p>My ID {auth.id}</p>
+      {/* <Link to={<ProfileForm id={auth.id}/>}>Edit Profile</Link> */}
       <p>{JSON.stringify(auth)}</p>
       <div>
         <h2>Other Users:</h2>
@@ -79,6 +86,7 @@ const Protected = () => {
         <h2>Bulletin Feed</h2>
         <div style = {{display: 'flex', flexDiretion: 'column', flexWrap: 'wrap', margin: '10px', padding: '10px'}}>{renderBulletins()}</div>
       </div>
+      
       {auth.authenticated && <p>is logged in</p>}
       {!auth.authenticated && <p>error should not see this</p>}
     </div>

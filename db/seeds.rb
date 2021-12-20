@@ -16,5 +16,25 @@ u8 = User.create(email: Faker::Internet.email, password: "wonderland", name: Fak
 u9 = User.create(email: Faker::Internet.email, password: "megamegacool", name: Faker::Name.name, image: Faker::Avatar.image)
 u10 = User.create(email: Faker::Internet.email, password: "listerine", name: Faker::Name.name, image: Faker::Avatar.image)
 
+u1.bulletins.create( header: Faker::Quote.robin, body: Faker::Quote.yoda, author: u1.id )
+u1.bulletins.create( header: Faker::Quote.robin, body: Faker::Quote.yoda, author: u1.id )
+u2.bulletins.create( header: Faker::Quote.robin, body: Faker::Quote.yoda, author: u2.id )
+u2.bulletins.create( header: Faker::Quote.robin, body: Faker::Quote.yoda, author: u2.id )
+u3.bulletins.create( header: Faker::Quote.robin, body: Faker::Quote.yoda, author: u3.id )
+u3.bulletins.create( header: Faker::Quote.robin, body: Faker::Quote.yoda, author: u3.id )
+u4.bulletins.create( header: Faker::Quote.robin, body: Faker::Quote.yoda, author: u4.id )
+u4.bulletins.create( header: Faker::Quote.robin, body: Faker::Quote.yoda, author: u4.id )
+u5.bulletins.create( header: Faker::Quote.robin, body: Faker::Quote.yoda, author: u5.id )
+u5.bulletins.create( header: Faker::Quote.robin, body: Faker::Quote.yoda, author: u5.id )
+u6.bulletins.create( header: Faker::Quote.robin, body: Faker::Quote.yoda, author: u6.id )
+u6.bulletins.create( header: Faker::Quote.robin, body: Faker::Quote.yoda, author: u6.id )
+u7.bulletins.create( header: Faker::Quote.robin, body: Faker::Quote.yoda, author: u7.id )
+u7.bulletins.create( header: Faker::Quote.robin, body: Faker::Quote.yoda, author: u7.id )
+u8.bulletins.create( header: Faker::Quote.robin, body: Faker::Quote.yoda, author: u8.id )
+u8.bulletins.create( header: Faker::Quote.robin, body: Faker::Quote.yoda, author: u8.id )
+u9.bulletins.create( header: Faker::Quote.robin, body: Faker::Quote.yoda, author: u9.id )
+u9.bulletins.create( header: Faker::Quote.robin, body: Faker::Quote.yoda, author: u9.id )
+u10.bulletins.create( header: Faker::Quote.robin, body: Faker::Quote.yoda, author: u10.id )
+u10.bulletins.create( header: Faker::Quote.robin, body: Faker::Quote.yoda, author: u10.id )
 
-p u1
+

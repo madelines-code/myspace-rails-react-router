@@ -9,15 +9,15 @@ const Layout = () => {
   const { authenticated, handleLogout } = useContext(AuthContext);
   const renderAuthLinks = () => {
     if (authenticated) {
-      return <button onClick={() => handleLogout(x)}>Logout</button>;
+      return <button style={styles.button} onClick={() => handleLogout(x)}>Logout</button>;
     }
     return (
       <>
         <div>
-          <Link to="/register">Register</Link>
+          <Link style={styles.navbarText} to="/register">Register</Link>
         </div>
         <div>
-          <Link to="/login">Login</Link>
+          <Link style={styles.navbarText} to="/login">Login</Link>
         </div>
       </>
     );
@@ -26,10 +26,10 @@ const Layout = () => {
     <div>
       <div style={styles.navbar}>
         <div>
-          <Link to="/">Home</Link>
+          <Link style={styles.navbarText} to="/">Home</Link>
         </div>
         <div>
-          <Link to="/protected">Protected</Link>
+          <Link style={styles.navbarText} to="/protected">My Profile</Link>
         </div>
         {renderAuthLinks()}
       </div>
@@ -52,7 +52,20 @@ const styles={
   },
     navbar: {
       display: "flex",
-      border: "1px solid",
+      backgroundColor: "white",
+      justifyContent: 'center',
+      padding: '20px',
+    },
+    navbarText: {
+      textDecoration: 'none',
+      color: 'black',
+      margin: '10px',
+      fontSize: '20px',
+    },
+    button: {
+      border: '0px',
+      backgroundColor: 'white',
+      fontSize: '20px',
     },
 };
 

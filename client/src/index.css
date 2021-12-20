@@ -11,3 +11,16 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.frontPage {
+  display: flex;
+  background: #003399;
+  text-align: right;
+  color: white;
+  width: 100vw;
+  height: 100vh; 
+}
+.frontText {
+  text-align: center;
+  
+}

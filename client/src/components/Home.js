@@ -16,7 +16,7 @@ const Home = () => {
       <div className='frontText'>
         <h2 >Welcome to Myspace</h2>
       </div>
-      <div>
+      <div style={{textAlign:'center'}}>
         <img src={mysaceHacked} alt='myspace logo'/>
       </div>
     </div>

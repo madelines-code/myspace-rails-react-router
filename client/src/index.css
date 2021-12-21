@@ -15,7 +15,8 @@ code {
 .frontPage {
   display: flex;
   background: #003399;
-  text-align: right;
+  justify-content: center;
+  flex-direction: column;
   color: white;
   width: 100vw;
   height: 100vh; 
@@ -23,4 +24,12 @@ code {
 .frontText {
   text-align: center;
   
+}
+.bulletins {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  margin: 10px;
+  padding: 10px;
+  flex-grow: 1;
 }

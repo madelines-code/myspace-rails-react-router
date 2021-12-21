@@ -11,6 +11,8 @@ import Users from './components/Users';
 import AuthProvider from './providers/AuthProvider';
 import Bulletin from './components/Bulletin';
 import BulletinForm from './components/BulletinForm';
+import MyBulletins from './components/MyBulletins';
+import BulletinsSlice from './components/BulletinsSlice';
 
 function App() {
   return (
@@ -24,6 +26,8 @@ function App() {
             <Route path="/protected" element={<Protected />} />
             <Route path = "/users" element={<Users/>}/>
             <Route path = "/api/bulletins/:id" element = {<Bulletin/>}/>
+            <Route path = "/api/bulletins" element = {<MyBulletins/>}/>
+            <Route path = "/api/bulletinsslice" element = {<BulletinsSlice/>}/>
             <Route path = "/api/bulletins/:id/edit" element = {<BulletinForm/>}/>
             <Route path = "/api/bulletins/new" element = {<BulletinForm/>}/>
           </Route>
